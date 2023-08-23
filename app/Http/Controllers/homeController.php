@@ -65,6 +65,7 @@ class homeController extends Controller
         return view ('contacts', ['varcontact' => $varcontact,'varadress' => $varadress]);
     }
 
+
     public function page()
     {
         

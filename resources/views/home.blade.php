@@ -17,6 +17,9 @@
     <p>Переменная меньше 90</p>
     @endif
 
-    
+    <x-alert />
+    <x-submit-button user="John">Im slot</x-alert> 
+
+        <x-alert type="error" class="mt-4"/>
 </body>
 </html>
