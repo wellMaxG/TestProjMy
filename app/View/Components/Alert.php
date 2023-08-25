@@ -23,4 +23,5 @@ class Alert extends Component
     {
         return view('components.alert');
     }
+    
 }
