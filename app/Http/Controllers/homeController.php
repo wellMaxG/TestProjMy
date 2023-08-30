@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Symfony\Component\Console\Input\Input;
+use Illuminate\Http\Request;
 
 class homeController extends Controller
 {
@@ -84,4 +85,28 @@ class homeController extends Controller
         alert('Hello mans!')}";
         return view('vars', compact('code'));
     }
+
+    public function get_form()
+    {
+        return view('form');
+    }
+    // public function put_form()
+    // {
+    //     return "Iam method";
+    // }
+    public function put_form(Request $request)
+    {
+        $messages = [
+            'login.required' =>'Поле login обязательно для заполнения.',
+            'login.max' =>'Поле login должно быть не менее 30 символов.',
+            'login.min' =>'Поле login должно быть не менее 3 символов.',
+            ];
+
+        $request->validate([
+        'login' =>'required|max:30 | min:3',
+        'password' =>'required|max:20 | min:8',
+        ], $messages);
+
+return 'login = '. $request->login .' '. 'password = ' .$request->password;
+}
 }

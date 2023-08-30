@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\topicsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +18,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/user', [UserController::class, 'index']);
 
+Route::get('/register', [UserController::class, 'index'])->name('register');
+Route::post('/register', [UserController::class, 'store'])->name('register.store');
+
+
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Http\Controllers\homeController;
-use App\Http\Controllers\topicsController;
+
 
 Route::get('/home', [homeController::class, 'show']);
 Route::get('/array', [homeController::class, 'array']);
@@ -33,3 +43,8 @@ Route::post('/topics/create', [topicsController::class, 'create']);
 Route::get('/page', [homeController::class, 'page']);
 Route::get('/master', [homeController::class, 'master']);
 Route::get('/vars', [homeController::class, 'vars']);
+
+Route::get('/form', [homeController::class, 'get_form']);
+Route::post('/form', [homeController::class, 'put_form']);
+
+
